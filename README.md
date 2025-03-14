@@ -16,9 +16,9 @@ Linux-Distribution used **Ubuntu 24.04.2 LTS**.
 | Chapter | Title                                           | Status |
 |---------|------------------------------------------------|--------|
 | 3       | Using the Shell                                | ✅ Completed |
-| 4       | Moving Around the Filesystem                   | 🚧 In Progress |
-| 5       | Working with Text Files                        | ❌ Planned |
-| 6       | Managing Running Processes                     | ❌ Planned |
+| 4       | Moving Around the Filesystem                   | ✅ Completed|
+| 5       | Working with Text Files                        | ✅ Completed|
+| 6       | Managing Running Processes                     | ✅ Completed|
 | 7       | Writing Simple Shell Scripts                   | ❌ Planned |
 
 ---
