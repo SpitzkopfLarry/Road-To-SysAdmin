@@ -1,0 +1,24 @@
+---
+- name: First Playbook
+  hosts: node1
+  become: yes
+  
+  tasks:
+    - name: Hello World anzeigen
+      debug:
+        msg: "Hello World"
+      when: ansible_os_family == "Debian"
+
+    - name: Update Paketlisten
+      apt:
+        update_cache: yes
+
+    - name: Installiere Standardtools
+      apt:
+        name:
+          - htop
+          - curl
+          - vim
+          - git
+          - ufw
+        state: present

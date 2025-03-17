@@ -1,0 +1,8 @@
+---
+- name: Shutdown Node1
+  hosts: node1
+  become: yes
+  tasks:
+    - name: Stoppe den Container-Prozess
+      command: kill 1
+
