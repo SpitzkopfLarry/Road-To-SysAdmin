@@ -1,6 +1,6 @@
 # Road To SysAdmin
 Welcome to my **Road To SysAdmin** project!  
-This repository contains **step-by-step solutions** starting from **Chapter 3** of the **Linux Bible** by **Christopher Negus**.  
+This repository contains **step-by-step solutions** starting from **Chapter 3** of the **Linux Bible** by **Christopher Negus** and **other educational projects** related to **Liunx**, like **Ansible** and **SadServers**.
 Linux-Distribution used **Ubuntu 24.04.2 LTS**.
 ## 📖 Table of Contents & Progress
 
