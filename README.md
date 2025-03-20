@@ -27,8 +27,8 @@ Linux-Distribution used **Ubuntu 24.04.2 LTS**.
 | Chapter | Title                                           | Status |
 |---------|------------------------------------------------|--------|
 | 8       | Learning System Administration                 | ❌ Planned |
-| 9       | Installing Linux                               | ❌ Planned |
-| 10      | Getting and Managing Software                  | ❌ Planned |
+| 9       | Installing Linux                               | SKIPPED |
+| 10      | Getting and Managing Software                  | SKIPPED|
 | 11      | Managing User Accounts                         | ❌ Planned |
 | 12      | Managing Disks and Filesystems                 | ❌ Planned |
 
