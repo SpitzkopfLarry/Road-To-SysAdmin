@@ -1,19 +1,24 @@
 ---
-- name: First Playbook
-  hosts: node1
+- name: First Playbook für alle Hosts
+  hosts: all
   become: yes
-  
-  tasks:
-    - name: Hello World anzeigen
-      debug:
-        msg: "Hello World"
-      when: ansible_os_family == "Debian"
 
-    - name: Update Paketlisten
+  tasks:
+
+    - name: "=== DEBUG === Zeige Distribution an"
+      debug:
+        msg: "{{ ansible_distribution }} {{ ansible_os_family }}"
+
+- name: Debian/Ubuntu Setup
+  hosts: ubuntu_ssh
+  become: yes
+
+  tasks:
+    - name: Update Paketlisten (Debian/Ubuntu)
       apt:
         update_cache: yes
 
-    - name: Installiere Standardtools
+    - name: Installiere Tools auf Debian/Ubuntu
       apt:
         name:
           - htop
@@ -22,3 +27,33 @@
           - git
           - ufw
         state: present
+
+- name: Rocky/RHEL Setup
+  hosts: rocky_ssh
+  become: yes
+
+  tasks:
+    - name: Repositories updaten (Rocky/RHEL)
+      dnf:
+        update_cache: yes
+
+    - name: Installiere EPEL-Repository (Rocky/RHEL)
+      dnf:
+        name: epel-release
+        state: present
+
+    - name: Entferne curl-minimal falls vorhanden (Rocky/RHEL)
+      dnf:
+        name: curl-minimal
+        state: absent
+
+    - name: Installiere Tools auf Rocky/RHEL
+      dnf:
+        name:
+          - htop
+          - curl
+          - vim
+          - git
+          - firewalld
+        state: present
+

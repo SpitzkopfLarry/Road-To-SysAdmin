@@ -1,0 +1,16 @@
+services:
+  ubuntu-ssh:
+    build:
+      context: ./ubuntu-ssh
+    container_name: ubuntu-ssh
+    ports:
+      - "2223:22"
+    restart: unless-stopped
+
+  rocky-ssh:
+    build:
+      context: ./rocky-ssh
+    container_name: rocky-ssh
+    ports:
+      - "2222:22"
+    restart: unless-stopped

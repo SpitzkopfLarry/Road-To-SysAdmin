@@ -1,0 +1,29 @@
+FROM ubuntu:22.04
+
+# System aktualisieren und SSH installieren
+RUN apt-get update && apt-get install -y \
+    openssh-server \
+    sudo
+
+# Verzeichnis für root-SSH-Keys anlegen
+RUN mkdir -p /root/.ssh
+
+# Public Key in authorized_keys für root kopieren
+COPY ubuntu-ssh-key.pub /root/.ssh/authorized_keys
+
+# Berechtigungen setzen
+RUN chmod 700 /root/.ssh && \
+    chmod 600 /root/.ssh/authorized_keys
+
+# SSH konfigurieren (Root-Login erlauben, Passwort-Login deaktivieren)
+RUN mkdir /var/run/sshd && \
+    echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
+    echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config && \
+    echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
+
+# Port freigeben
+EXPOSE 22
+
+# SSH-Dienst starten
+CMD ["/usr/sbin/sshd", "-D"]
+
